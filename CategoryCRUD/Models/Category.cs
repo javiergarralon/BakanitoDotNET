@@ -8,7 +8,7 @@ namespace CategoryCRUD.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        [DisplayName("Category Order")]
+        [DisplayName("Category Name")]
         public string Name { get; set; }
         [DisplayName("Display Order")]
         public int DisplayOrder { get; set; }
