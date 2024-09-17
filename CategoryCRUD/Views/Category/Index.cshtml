@@ -4,9 +4,20 @@
 
 @model List<Category>
 
-<div class="text-center">
-    <h1 class="display-4">Category List</h1>
+<div class="container">
+    <div class="row p-4">
+        <div class="col-6">
+            <h2 class="text-primary">Category List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle-fill"></i> Create New Category
+            </a>
+        </div>
+    </div>
+</div>
 
+<div class="text-center">
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
