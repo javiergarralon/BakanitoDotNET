@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CategoryCRUD.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CategoryCRUD.Data
 {
@@ -8,5 +9,7 @@ namespace CategoryCRUD.Data
         {
 
         }
+
+        public DbSet<Category> Categories { get; set; }
     }
 }
