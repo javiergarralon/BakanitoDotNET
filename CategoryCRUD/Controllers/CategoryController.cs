@@ -26,9 +26,23 @@ namespace CategoryCRUD.Controllers
         [HttpPost]
         public IActionResult Create(Category category)
         {
-            _db.Categories.Add(category);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
+            //Custom validations
+            //if(category.Name == category.DisplayOrder.ToString())
+            //{
+            //    ModelState.AddModelError("name", "The DisplayOrder cannot exactly match the Name.");
+            //} 
+            //if(category.Name != null && category.Name.ToLower() == "test")
+            //{
+            //    ModelState.AddModelError("", "Test is an invalid value.");
+            //}
+
+            if (ModelState.IsValid) { 
+                _db.Categories.Add(category);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(category);
+            
         }
     }
 }
