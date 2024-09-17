@@ -1,8 +1,8 @@
-using CategoryCRUD.Models;
+using BakanitoWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace CategoryCRUD.Controllers
+namespace BakanitoWeb.Controllers
 {
     public class HomeController : Controller
     {

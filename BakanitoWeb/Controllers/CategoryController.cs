@@ -1,9 +1,9 @@
-﻿using CategoryCRUD.Data;
-using CategoryCRUD.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using BakanitoWeb.Data;
+using BakanitoWeb.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 
-namespace CategoryCRUD.Controllers
+namespace BakanitoWeb.Controllers
 {
     public class CategoryController : Controller
     {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CategoryCRUD", "CategoryCRUD\CategoryCRUD.csproj", "{00C6DF6E-07D3-4D04-9DB8-26BB531454A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakanitoWeb", "BakanitoWeb\BakanitoWeb.csproj", "{00C6DF6E-07D3-4D04-9DB8-26BB531454A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,7 +4,7 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace CategoryCRUD.Migrations
+namespace BakanitoWeb.Migrations
 {
     /// <inheritdoc />
     public partial class SeedCategoryTable : Migration

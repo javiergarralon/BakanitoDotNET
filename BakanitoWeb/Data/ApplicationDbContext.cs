@@ -1,7 +1,7 @@
-﻿using CategoryCRUD.Models;
+﻿using BakanitoWeb.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace CategoryCRUD.Data
+namespace BakanitoWeb.Data
 {
     public class ApplicationDbContext : DbContext
     {
