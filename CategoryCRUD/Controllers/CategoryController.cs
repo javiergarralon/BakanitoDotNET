@@ -1,6 +1,7 @@
 ﻿using CategoryCRUD.Data;
 using CategoryCRUD.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CategoryCRUD.Controllers
 {
@@ -86,6 +87,40 @@ namespace CategoryCRUD.Controllers
                 return RedirectToAction("Index");
             }
             return View(category);
+
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+
+            Category? categorySelected = _db.Categories.Find(id);
+
+            if (categorySelected == null)
+            {
+                return NotFound();
+            }
+
+            return View(categorySelected);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeletePOST(int? id)
+        {
+            Category? categorySelected = _db.Categories.Find(id); 
+
+            if(categorySelected == null)
+            {
+                return NotFound();
+            }
+
+            _db.Categories.Remove(categorySelected);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+            
 
         }
     }
