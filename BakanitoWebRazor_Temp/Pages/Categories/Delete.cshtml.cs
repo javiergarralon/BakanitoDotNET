@@ -34,7 +34,7 @@ namespace BakanitoWebRazor_Temp.Pages.Categories
 
             _db.Categories.Remove(categorySelected);
             _db.SaveChanges();
-            //TempData["success"] = "Category deleted successfully";
+            TempData["success"] = "Category deleted successfully";
             return RedirectToPage("Index");
         }
     }
