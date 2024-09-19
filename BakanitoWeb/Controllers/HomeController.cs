@@ -1,4 +1,4 @@
-using BakanitoWeb.Models;
+using Bakanito.Models.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

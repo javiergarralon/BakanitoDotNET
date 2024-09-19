@@ -1,4 +1,4 @@
-using BakanitoWeb.Data;
+using Bakanito.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

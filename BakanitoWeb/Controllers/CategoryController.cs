@@ -1,7 +1,7 @@
-﻿using BakanitoWeb.Data;
-using BakanitoWeb.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Bakanito.DataAccess.Data;
+using Bakanito.Models.Models;
 
 namespace BakanitoWeb.Controllers
 {

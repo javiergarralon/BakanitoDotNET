@@ -15,4 +15,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bakanito.DataAccess\Bakanito.DataAccess.csproj" />
+    <ProjectReference Include="..\Bakanito.Models\Bakanito.Models.csproj" />
+    <ProjectReference Include="..\Bakanito.Utility\Bakanito.Utility.csproj" />
+  </ItemGroup>
+
 </Project>
