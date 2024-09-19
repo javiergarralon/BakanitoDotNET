@@ -1,7 +1,7 @@
-﻿using BakanitoWeb.Models;
+﻿using Bakanito.Models.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BakanitoWeb.Data
+namespace Bakanito.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {

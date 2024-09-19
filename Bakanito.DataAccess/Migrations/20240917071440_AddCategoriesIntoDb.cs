@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace BakanitoWeb.Migrations
+namespace Bakanito.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class AddCategoriesIntoDb : Migration

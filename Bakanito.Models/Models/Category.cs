@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace BakanitoWeb.Models
+namespace Bakanito.Models.Models
 {
     public class Category
     {

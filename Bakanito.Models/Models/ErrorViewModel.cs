@@ -1,4 +1,4 @@
-namespace BakanitoWeb.Models
+namespace Bakanito.Models.Models
 {
     public class ErrorViewModel
     {
