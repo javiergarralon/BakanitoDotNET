@@ -5,7 +5,13 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakanitoWeb", "BakanitoWeb\BakanitoWeb.csproj", "{00C6DF6E-07D3-4D04-9DB8-26BB531454A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BakanitoWebRazor_Temp", "BakanitoWebRazor_Temp\BakanitoWebRazor_Temp.csproj", "{A87A1158-58E1-4CD3-81ED-F63DBFB7DE2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BakanitoWebRazor_Temp", "BakanitoWebRazor_Temp\BakanitoWebRazor_Temp.csproj", "{A87A1158-58E1-4CD3-81ED-F63DBFB7DE2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakanito.Models", "Bakanito.Models\Bakanito.Models.csproj", "{866FBE11-6059-48EC-992B-A1548AC74331}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakanito.Utility", "Bakanito.Utility\Bakanito.Utility.csproj", "{8BEB505E-A1F4-4323-9742-B3F92D5BAAA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bakanito.DataAccess", "Bakanito.DataAccess\Bakanito.DataAccess.csproj", "{1CF4EBDB-552C-44A9-B9BE-6BA899E5164B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{A87A1158-58E1-4CD3-81ED-F63DBFB7DE2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A87A1158-58E1-4CD3-81ED-F63DBFB7DE2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A87A1158-58E1-4CD3-81ED-F63DBFB7DE2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{866FBE11-6059-48EC-992B-A1548AC74331}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{866FBE11-6059-48EC-992B-A1548AC74331}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{866FBE11-6059-48EC-992B-A1548AC74331}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{866FBE11-6059-48EC-992B-A1548AC74331}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BEB505E-A1F4-4323-9742-B3F92D5BAAA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BEB505E-A1F4-4323-9742-B3F92D5BAAA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BEB505E-A1F4-4323-9742-B3F92D5BAAA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BEB505E-A1F4-4323-9742-B3F92D5BAAA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CF4EBDB-552C-44A9-B9BE-6BA899E5164B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF4EBDB-552C-44A9-B9BE-6BA899E5164B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF4EBDB-552C-44A9-B9BE-6BA899E5164B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF4EBDB-552C-44A9-B9BE-6BA899E5164B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
