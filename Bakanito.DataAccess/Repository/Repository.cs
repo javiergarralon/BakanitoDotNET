@@ -25,7 +25,7 @@ namespace Bakanito.DataAccess.Repository
         {
             dbSet.Add(entity);
         }
-        
+
         public T Get(System.Linq.Expressions.Expression<Func<T, bool>> filter)
         {
             IQueryable<T> query = dbSet;
@@ -43,13 +43,11 @@ namespace Bakanito.DataAccess.Repository
         public void Delete(T entity)
         {
             dbSet.Remove(entity);
-        }       
+        }
 
         public void RemoveRange(IEnumerable<T> entity)
         {
             dbSet.RemoveRange(entity);
         }
-    }
-    {
     }
 }
