@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bakanito.DataAccess.Repository.IRepository
 {
-    internal interface IUnitOfWork
+    public interface IUnitOfWork
     {
         ICategoryRepository CategoryRepository { get; }
         void Save();

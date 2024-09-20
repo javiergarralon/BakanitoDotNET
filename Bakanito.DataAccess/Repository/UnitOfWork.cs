@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bakanito.DataAccess.Repository
 {
-    internal class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private ApplicationDbContext _db;
         public ICategoryRepository Category { get; private set; }
