@@ -4,8 +4,9 @@ using Bakanito.DataAccess.Data;
 using Bakanito.Models.Models;
 using Bakanito.DataAccess.Repository.IRepository;
 
-namespace BakanitoWeb.Controllers
+namespace BakanitoWeb.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
