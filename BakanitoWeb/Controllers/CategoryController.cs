@@ -8,15 +8,15 @@ namespace BakanitoWeb.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ICategoryRepository _categoryRepository;
-        public CategoryController(ICategoryRepository db)
+        private readonly IUnitOfWork _unitOfWork;
+        public CategoryController(IUnitOfWork unitOfWork)
         {
-            _categoryRepository = db;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
-            List<Category> objCategoryList = _categoryRepository.GetAll().ToList();
+            List<Category> objCategoryList = _unitOfWork.CategoryRepository.GetAll().ToList();
             return View(objCategoryList);
         }
 
@@ -41,8 +41,8 @@ namespace BakanitoWeb.Controllers
 
             if (ModelState.IsValid)
             {
-                _categoryRepository.Add(category);
-                _categoryRepository.Save();
+                _unitOfWork.CategoryRepository.Add(category);
+                _unitOfWork.Save();
                 TempData["success"] = "Category created successfully";
                 return RedirectToAction("Index");
             }
@@ -57,7 +57,7 @@ namespace BakanitoWeb.Controllers
                 return NotFound();
             }
 
-            Category? categorySelected = _categoryRepository.Get(x => x.Id == id);
+            Category? categorySelected = _unitOfWork.CategoryRepository.Get(x => x.Id == id);
             //Category? categorySelected2 = _db.Categories.FirstOrDefault(x=>x.Id==id);
             //Category? categorySelected3 = _db.Categories.Where(x=>x.Id==id).FirstOrDefault();
 
@@ -85,8 +85,8 @@ namespace BakanitoWeb.Controllers
 
             if (ModelState.IsValid)
             {
-                _categoryRepository.Update(category);
-                _categoryRepository.Save();
+                _unitOfWork.CategoryRepository.Update(category);
+                _unitOfWork.Save();
                 TempData["success"] = "Category edited successfully";
                 return RedirectToAction("Index");
             }
@@ -101,7 +101,7 @@ namespace BakanitoWeb.Controllers
                 return NotFound();
             }
 
-            Category? categorySelected = _categoryRepository.Get(x => x.Id == id);
+            Category? categorySelected = _unitOfWork.CategoryRepository.Get(x => x.Id == id);
 
             if (categorySelected == null)
             {
@@ -114,15 +114,15 @@ namespace BakanitoWeb.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult DeletePOST(int? id)
         {
-            Category? categorySelected = _categoryRepository.Get(x => x.Id == id);
+            Category? categorySelected = _unitOfWork.CategoryRepository.Get(x => x.Id == id);
 
             if (categorySelected == null)
             {
                 return NotFound();
             }
 
-            _categoryRepository.Delete(categorySelected);
-            _categoryRepository.Save();
+            _unitOfWork.CategoryRepository.Delete(categorySelected);
+            _unitOfWork.Save();
             TempData["success"] = "Category deleted successfully";
             return RedirectToAction("Index");
 

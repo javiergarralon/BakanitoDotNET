@@ -11,14 +11,12 @@ namespace Bakanito.DataAccess.Repository
     public class UnitOfWork : IUnitOfWork
     {
         private ApplicationDbContext _db;
-        public ICategoryRepository Category { get; private set; }
-
-        public ICategoryRepository CategoryRepository => throw new NotImplementedException();
-
+        public ICategoryRepository CategoryRepository { get; private set; }
+        
         public UnitOfWork(ApplicationDbContext db) 
         {
             _db = db;
-            Category = new CategoryRepository(_db);
+            CategoryRepository = new CategoryRepository(_db);
         }       
 
         public void Save()
