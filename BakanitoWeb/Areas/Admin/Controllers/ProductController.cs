@@ -67,7 +67,7 @@ namespace BakanitoWeb.Areas.Admin.Controllers
                     {
                         file.CopyTo(fileStream);
                     }
-                    productViewModel.Product.ImageUrl = @"\images\product" + fileName;
+                    productViewModel.Product.ImageUrl = @"\images\product\" + fileName;
                 }
 
                 _unitOfWork.ProductRepository.Add(productViewModel.Product);
