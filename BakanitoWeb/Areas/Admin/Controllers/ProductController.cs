@@ -23,7 +23,7 @@ namespace BakanitoWeb.Areas.Admin.Controllers
             return View(objProductList);
         }
 
-        public IActionResult Create()
+        public IActionResult Upsert(int? id)
         {
 
             ProductViewModel productViewModel = new()
@@ -36,11 +36,21 @@ namespace BakanitoWeb.Areas.Admin.Controllers
                 Product = new Product()
             };
 
-            return View(productViewModel);
+            if(id == null || id == 0)
+            {
+                //Insert
+                return View(productViewModel);
+            }
+            else
+            {
+                //Update
+                productViewModel.Product = _unitOfWork.ProductRepository.Get(x=>x.Id==id);
+                return View(productViewModel);
+            }
         }
 
         [HttpPost]
-        public IActionResult Create(ProductViewModel productViewModel)
+        public IActionResult Upsert(ProductViewModel productViewModel, IFormFile? file)
         {
             if (ModelState.IsValid)
             {
@@ -58,38 +68,6 @@ namespace BakanitoWeb.Areas.Admin.Controllers
                 });
                 return View(productViewModel);
             }
-        }
-
-        public IActionResult Edit(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-
-            Product? ProductSelected = _unitOfWork.ProductRepository.Get(x => x.Id == id);
-            //Product? ProductSelected2 = _db.products.FirstOrDefault(x=>x.Id==id);
-            //Product? ProductSelected3 = _db.products.Where(x=>x.Id==id).FirstOrDefault();
-
-            if (ProductSelected == null)
-            {
-                return NotFound();
-            }
-
-            return View(ProductSelected);
-        }
-
-        [HttpPost]
-        public IActionResult Edit(Product Product)
-        {
-            if (ModelState.IsValid)
-            {
-                _unitOfWork.ProductRepository.Update(Product);
-                _unitOfWork.Save();
-                TempData["success"] = "Product edited successfully";
-                return RedirectToAction("Index");
-            }
-            return View(Product);
         }
 
         public IActionResult Delete(int? id)
