@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bakanito.Models.Models
 {
-    internal class Product
+    public class Product
     {
         [Key]
         public int Id { get; set; }
