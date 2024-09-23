@@ -63,6 +63,17 @@ namespace BakanitoWeb.Areas.Admin.Controllers
                     string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
                     string productPath = Path.Combine(wwwRootPath, @"images\product");
 
+                    if(!string.IsNullOrEmpty(productViewModel.Product.ImageUrl))
+                    {
+                        //delete old image
+                        var oldImagePath = Path.Combine(wwwRootPath, productViewModel.Product.ImageUrl.TrimStart('\\'));
+
+                        if (System.IO.File.Exists(oldImagePath))
+                        {
+                            System.IO.File.Delete(oldImagePath);
+                        }
+                    }
+
                     using (var fileStream = new FileStream(Path.Combine(productPath, fileName), FileMode.Create))
                     {
                         file.CopyTo(fileStream);
@@ -70,7 +81,15 @@ namespace BakanitoWeb.Areas.Admin.Controllers
                     productViewModel.Product.ImageUrl = @"\images\product\" + fileName;
                 }
 
-                _unitOfWork.ProductRepository.Add(productViewModel.Product);
+                if(productViewModel.Product.Id == 0)
+                {
+                    _unitOfWork.ProductRepository.Add(productViewModel.Product);
+                }
+                else
+                {
+                    _unitOfWork.ProductRepository.Update(productViewModel.Product);
+                } 
+                
                 _unitOfWork.Save();
                 TempData["success"] = "Product created successfully";
                 return RedirectToAction("Index");

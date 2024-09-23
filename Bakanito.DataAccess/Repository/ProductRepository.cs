@@ -20,7 +20,24 @@ namespace Bakanito.DataAccess.Repository
 
         public void Update(Product product)
         {
-            _db.Products.Update(product);
+            var productFromDb = _db.Products.FirstOrDefault(x=> x.Id == product.Id);
+            if (productFromDb != null)
+            {
+                productFromDb.Title = product.Title;
+                productFromDb.ISBN = product.ISBN;
+                productFromDb.Price = product.Price;
+                productFromDb.Description = product.Description;
+                productFromDb.CategoryId = product.CategoryId;
+                productFromDb.ListPrice = product.ListPrice;
+                productFromDb.Price50 = product.Price50;
+                productFromDb.Price100 = product.Price100;
+                productFromDb.Author = product.Author;
+                if (productFromDb.ImageUrl != null)
+                {
+                    productFromDb.ImageUrl = product.ImageUrl;
+                }
+            }
+            //_db.Products.Update(product);
         }
     }
 }
