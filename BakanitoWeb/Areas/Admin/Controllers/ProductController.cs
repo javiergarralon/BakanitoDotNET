@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Bakanito.DataAccess.Data;
 using Bakanito.Models.Models;
 using Bakanito.DataAccess.Repository.IRepository;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Bakanito.Models.ViewModels;
 
 namespace BakanitoWeb.Areas.Admin.Controllers
 {
@@ -17,26 +19,45 @@ namespace BakanitoWeb.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            List<Product> objProductList = _unitOfWork.ProductRepository.GetAll().ToList();            
+            List<Product> objProductList = _unitOfWork.ProductRepository.GetAll().ToList();              
             return View(objProductList);
         }
 
         public IActionResult Create()
         {
-            return View();
+
+            ProductViewModel productViewModel = new()
+            {
+                CategoryList = _unitOfWork.CategoryRepository.GetAll().Select(x => new SelectListItem
+                {
+                    Text = x.Name,
+                    Value = x.Id.ToString()
+                }),
+                Product = new Product()
+            };
+
+            return View(productViewModel);
         }
 
         [HttpPost]
-        public IActionResult Create(Product Product)
+        public IActionResult Create(ProductViewModel productViewModel)
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.ProductRepository.Add(Product);
+                _unitOfWork.ProductRepository.Add(productViewModel.Product);
                 _unitOfWork.Save();
                 TempData["success"] = "Product created successfully";
                 return RedirectToAction("Index");
             }
-            return View(Product);
+            else
+            {
+                productViewModel.CategoryList = _unitOfWork.CategoryRepository.GetAll().Select(x => new SelectListItem
+                {
+                    Text = x.Name,
+                    Value = x.Id.ToString()
+                });
+                return View(productViewModel);
+            }
         }
 
         public IActionResult Edit(int? id)
