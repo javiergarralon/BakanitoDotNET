@@ -105,39 +105,36 @@ namespace BakanitoWeb.Areas.Admin.Controllers
             }
         }
 
+        #region API CALLS
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            List<Product> objProductList = _unitOfWork.ProductRepository.GetAll(includeProperties: "Category").ToList();
+            return Json(new { data = objProductList });
+        }
+
         public IActionResult Delete(int? id)
         {
-            if (id == null || id == 0)
+            var productToBeDeleted = _unitOfWork.ProductRepository.Get(x => x.Id == id);
+            if (productToBeDeleted == null)
             {
-                return NotFound();
+                return Json(new { success = false, message = "Error while deleting" });
             }
 
-            Product? ProductSelected = _unitOfWork.ProductRepository.Get(x => x.Id == id);
+            var oldImagePath =
+                           Path.Combine(_webHostEnvironment.WebRootPath,
+                           productToBeDeleted.ImageUrl.TrimStart('\\'));
 
-            if (ProductSelected == null)
+            if (System.IO.File.Exists(oldImagePath))
             {
-                return NotFound();
+                System.IO.File.Delete(oldImagePath);
             }
 
-            return View(ProductSelected);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        public IActionResult DeletePOST(int? id)
-        {
-            Product? ProductSelected = _unitOfWork.ProductRepository.Get(x => x.Id == id);
-
-            if (ProductSelected == null)
-            {
-                return NotFound();
-            }
-
-            _unitOfWork.ProductRepository.Delete(ProductSelected);
+            _unitOfWork.ProductRepository.Delete(productToBeDeleted);
             _unitOfWork.Save();
-            TempData["success"] = "Product deleted successfully";
-            return RedirectToAction("Index");
 
-
+            return Json(new { success = true, message = "Delete Successful" });
         }
-    }
+            #endregion
+        }
 }
