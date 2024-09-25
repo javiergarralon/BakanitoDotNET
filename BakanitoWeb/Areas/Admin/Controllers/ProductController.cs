@@ -5,10 +5,13 @@ using Bakanito.Models.Models;
 using Bakanito.DataAccess.Repository.IRepository;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Bakanito.Models.ViewModels;
+using Bakanito.Utility;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BakanitoWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

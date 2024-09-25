@@ -3,10 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using Bakanito.DataAccess.Data;
 using Bakanito.Models.Models;
 using Bakanito.DataAccess.Repository.IRepository;
+using Microsoft.AspNetCore.Authorization;
+using Bakanito.Utility;
 
 namespace BakanitoWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
