@@ -23,6 +23,12 @@ namespace BakanitoWeb.Areas.Customer.Controllers
             return View(productList);
         }
 
+        public IActionResult Details(int productId)
+        {
+            Product product = _unitOfWork.ProductRepository.Get(x=>x.Id==productId, includeProperties: "Category");
+            return View(product);
+        }
+
         public IActionResult Privacy()
         {
             return View();
